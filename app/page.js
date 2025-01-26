@@ -481,10 +481,10 @@ export default function Page() {
               transition={{ duration: 1, ease: "easeOut" }}
             >
 
-              <div className="w-full px-8 py-12">
                 <h1 className="text-3xl font-bold text-black p-4 shadow-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
                   Connect with me
                 </h1>
+              <div className="w-full px-8 py-12">
                 <div className="grid grid-cols-1 text-center md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
                   {platforms.map((platform, index) => (
                     <a
