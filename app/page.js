@@ -8,58 +8,6 @@ import { Image } from "@heroui/react";
 import { FaReact, FaNodeJs, FaMailBulk, FaLaravel, FaLinkedin, FaFacebook, FaInstagram, FaPhp, FaGithub, FaJava, FaJsSquare, FaHeart } from "react-icons/fa";
 import { SiTailwindcss, SiMysql, SiGit, SiVisualstudiocode } from "react-icons/si";
 
-
-// AutoTyping Component
-const AutoTyping = () => {
-  useEffect(() => {
-    const exampleText = ['FrontEnd Developer', 'BackEnd Developer', 'Computer Science Student'];
-    let currentIndex = 0;
-    let currentText = '';
-    const targetElement = document.getElementById("text");
-
-    const typeText = () => {
-      if (currentIndex < exampleText.length) {
-        let word = exampleText[currentIndex];
-        let i = 0;
-        const intervalId = setInterval(() => {
-          currentText += word.charAt(i);
-          targetElement.textContent = currentText;
-          i++;
-          if (i === word.length) {
-            clearInterval(intervalId);
-            currentIndex++;
-            setTimeout(deleteText, 2000); // wait before deleting
-          }
-        }, 50);
-      }
-    };
-
-    const deleteText = () => {
-      let i = currentText.length;
-      const intervalId = setInterval(() => {
-        currentText = currentText.substring(0, i - 1);
-        targetElement.textContent = currentText;
-        i--;
-        if (i === 0) {
-          clearInterval(intervalId);
-          currentIndex = (currentIndex === exampleText.length) ? 0 : currentIndex; // Reset to 0 after finishing the list
-          typeText();
-        }
-      }, 50);
-    };
-
-    typeText(); // Start typing effect
-
-    return () => {
-      // Clean up if needed
-      currentIndex = 0;
-      currentText = '';
-    };
-  }, []);
-
-  return <span id="text"></span>;
-};
-
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -95,6 +43,81 @@ export default function Page() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const AutoTyping = () => {
+    useEffect(() => {
+      const exampleText = ['FrontEnd Developer', 'BackEnd Developer', 'Computer Science Student'];
+      let currentIndex = 0;
+      let currentText = '';
+      const targetElement = document.getElementById("text");
+
+      const typeText = () => {
+        if (currentIndex < exampleText.length) {
+          let word = exampleText[currentIndex];
+          let i = 0;
+          const intervalId = setInterval(() => {
+            currentText += word.charAt(i);
+            targetElement.textContent = currentText;
+            i++;
+            if (i === word.length) {
+              clearInterval(intervalId);
+              currentIndex++;
+              setTimeout(deleteText, 2000); // wait before deleting
+            }
+          }, 50);
+        }
+      };
+
+      const deleteText = () => {
+        let i = currentText.length;
+        const intervalId = setInterval(() => {
+          currentText = currentText.substring(0, i - 1);
+          targetElement.textContent = currentText;
+          i--;
+          if (i === 0) {
+            clearInterval(intervalId);
+            currentIndex = (currentIndex === exampleText.length) ? 0 : currentIndex; // Reset to 0 after finishing the list
+            typeText();
+          }
+        }, 50);
+      };
+
+      typeText(); // Start typing effect
+
+      return () => {
+        // Clean up if needed
+        currentIndex = 0;
+        currentText = '';
+      };
+    }, []);
+
+    return <span id="text"></span>;
+  };
+
+
+  const AutoGreeting = () => {
+    const greetings = [
+      'Xin chào', 'Hello', 'Halo', 'Bonjour', 'Hola',
+      'Ciao', 'Ni Hao', 'Annyeonghaseyo', 'Namaste',
+      'Merhaba', 'Olá', 'Hallo', 'Hej', 'Aloha', 'Shalom'
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+      const changeGreeting = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % greetings.length);
+      };
+
+      const intervalId = setInterval(changeGreeting, 2000); // Change every 2 seconds
+
+      return () => clearInterval(intervalId); // Cleanup on component unmount
+    }, [greetings.length]);
+
+    return <span className="text-red-900 font-semibold">{greetings[currentIndex]}</span>;
+  };
+
+
 
   const projects = [
     {
@@ -204,10 +227,10 @@ export default function Page() {
           className={`${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             } transition-all duration-1000 ease-out text-black p-4`}
         >
-          <div className="items-center gap-4 md:text-center justify-center md:mt-[20%] mt-[90%] md:mb-[15%] mb-[130%]">
+          <div className="items-center gap-4 md:text-center justify-center md:mt-[20%] mt-[40%] md:mb-[15%] mb-[80%]">
             <div className="text-black p-4">
-              <h1 className="">Hi, my name is</h1>
-              <h1 className="font-bold text-4xl">
+              <h1 className="text-lg"><AutoGreeting /><span> there, my name is</span></h1>
+              <h1 className="font-bold text-5xl">
                 Muhammad Ahsan <span className="text-gray-500">Yudhistira</span>
               </h1>
               <p className="text-lg">A <AutoTyping /></p>
@@ -238,7 +261,7 @@ export default function Page() {
               I'm eager to apply my skills to innovative projects and am always looking to learn and grow professionally.
             </p>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/yudhisahsan/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 text-black py-2 px-4 shadow-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] hover:bg-green-400 inline-flex items-center"
@@ -332,40 +355,33 @@ export default function Page() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <h1 className="text-3xl font-bold text-black p-4 shadow-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">Projects</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
             {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 rounded-none bg-[#e3dff2] text-black"
-              >
-
-                <h3 className="text-xl font-bold">{project.title}</h3>
-                <img
-                  src={project.img} // Standard HTML `img` tag
-                  alt={`${project.title} Image`}
-                  className="w-full h-48 object-cover mt-4 border-2 border-black"
-                />
-                <p className="mt-2 mb-4 text-sm border-black   border-b-2">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.frameworks.map((framework, idx) => (
-                    <span
-                      key={idx}
-                      className={`${frameworkColors[framework] || "bg-gray-500"
-                        } text-black px-2 py-1 text-xs font-semibold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]`}
-                    >
-                      {framework}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-medium underline hover:no-underline"
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                <Card
+                  key={index}
+                  className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 rounded-none bg-[#e3dff2] text-black"
                 >
-                  View Project <HiExternalLink className="ml-2 text-lg" />
-                </a>
-              </Card>
+                  <img
+                    src={project.img} // Standard HTML `img` tag
+                    alt={`${project.title} Image`}
+                    className="w-full h-48 object-cover border-2 border-black"
+                  />
+                  <h3 className="text-xl font-bold">{project.title}</h3>
+                  <p className="mt-2 mb-4 text-sm border-black   border-b-2">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.frameworks.map((framework, idx) => (
+                      <span
+                        key={idx}
+                        className={`${frameworkColors[framework] || "bg-gray-500"
+                          } text-black px-2 py-1 text-xs font-semibold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)]`}
+                      >
+                        {framework}
+                      </span>
+                    ))}
+                  </div>
+                </Card>
+              </a>
             ))}
           </div>
         </motion.div>
@@ -467,7 +483,7 @@ export default function Page() {
 
               <div className="border-4 border-black bg-[#fde4e1] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
                 <h1 className="text-2xl font-bold text-black">Email</h1>
-                <p className="text-lg mt-2">yudhisahsan@gmail.com</p>
+                <p className="text-base mt-2">yudhisahsan@gmail.com</p>
               </div>
             </a>
 
@@ -475,7 +491,7 @@ export default function Page() {
             <a href="wa.me/628990404567" >
               <div className="border-4 border-black bg-[#d0f0fd] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
                 <h1 className="text-2xl font-bold text-black">WhatsApp</h1>
-                <p className="text-lg mt-2">+62 899 040 4567</p>
+                <p className="text-base mt-2">+62 899 040 4567</p>
               </div>
             </a>
           </div>
