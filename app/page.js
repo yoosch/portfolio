@@ -492,7 +492,7 @@ export default function Page() {
                       href={platform.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex justify-center items-center border-2 px-8 py-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 rounded-none ${platform.bgColor} text-black font-bold`}
+                      className={`flex items-center border-2 px-8 py-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 rounded-none ${platform.bgColor} text-black font-bold`}
                     >
                       {platform.icon}
                       {platform.name}
