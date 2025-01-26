@@ -130,25 +130,25 @@ export default function Page() {
   const platforms = [
     {
       name: "GitHub",
-      link: "https://github.com",
+      link: "https://github.com/yoosch",
       bgColor: "bg-[#f0e7ff]",
       icon: <FaGithub className="w-6 h-6 inline-block mr-2" />,
     },
     {
       name: "LinkedIn",
-      link: "https://linkedin.com",
+      link: "https://www.linkedin.com/in/yudhisahsan/",
       bgColor: "bg-[#d0f0fd]",
       icon: <FaLinkedin className="w-6 h-6 inline-block mr-2" />,
     },
     {
       name: "Facebook",
-      link: "https://facebook.com",
+      link: "https://www.facebook.com/ydhs.ahsn0723/",
       bgColor: "bg-[#eaf4ff]",
       icon: <FaFacebook className="w-6 h-6 inline-block mr-2" />,
     },
     {
       name: "Instagram",
-      link: "https://instagram.com",
+      link: "https://instagram.com/yudhisahsan",
       bgColor: "bg-[#fde4e1]",
       icon: <FaInstagram className="w-6 h-6 inline-block mr-2" />,
     },
@@ -200,7 +200,7 @@ export default function Page() {
 
       <div className="p-10">
         <div
-        id="home"
+          id="home"
           className={`${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             } transition-all duration-1000 ease-out text-black p-4`}
         >
@@ -463,16 +463,21 @@ export default function Page() {
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 px-8 py-12">
             {/* Email Section */}
-            <div className="border-4 border-black bg-[#fde4e1] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
-              <h1 className="text-2xl font-bold text-black">Email</h1>
-              <p className="text-lg mt-2">your.email@example.com</p>
-            </div>
+            <a href="mailto:yudhisahsan@gmail.com" >
+
+              <div className="border-4 border-black bg-[#fde4e1] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
+                <h1 className="text-2xl font-bold text-black">Email</h1>
+                <p className="text-lg mt-2">yudhisahsan@gmail.com</p>
+              </div>
+            </a>
 
             {/* WhatsApp Section */}
-            <div className="border-4 border-black bg-[#d0f0fd] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
-              <h1 className="text-2xl font-bold text-black">WhatsApp</h1>
-              <p className="text-lg mt-2">+62 812 3456 7890</p>
-            </div>
+            <a href="wa.me/628990404567" >
+              <div className="border-4 border-black bg-[#d0f0fd] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
+                <h1 className="text-2xl font-bold text-black">WhatsApp</h1>
+                <p className="text-lg mt-2">+62 899 040 4567</p>
+              </div>
+            </a>
           </div>
         </motion.div>
 
