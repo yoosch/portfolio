@@ -50,4 +50,57 @@ body {
 .fade-out-up {
   animation: fadeOutUp 1s ease-in forwards;
 }
+@keyframes buildUp {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply animation to the entire "YOOSCH" text */
+.yoosch-text {
+  display: inline-block;
+  position: relative;
+  display: flex;
+}
+
+.yoosch-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: buildUp 1s ease-out forwards; /* Add animation to each letter */
+  margin: 0 2px; /* Space out the letters */
+}
+
+.yoosch-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.yoosch-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.yoosch-text span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.yoosch-text span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.yoosch-text span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.yoosch-text span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+/* Optional: Add a fade-out effect for the loader container */
+.loader-container {
+  transition: opacity 0.7s ease-in-out;
+}
 

@@ -13,6 +13,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        pulseText: "pulse 1.5s ease-in-out infinite",
+      },
     },
   },
   plugins: [
