@@ -50,7 +50,7 @@ export default function Page() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false); // Hide loader after 3 seconds
-    }, 500); // 3000ms = 3 seconds
+    }, 1000); // 3000ms = 3 seconds
 
     return () => clearTimeout(timeout); // Cleanup timeout on unmount
   }, []);
@@ -58,21 +58,20 @@ export default function Page() {
   const LoaderScreen = () => {
     return (
       <div
-      className={`fixed inset-0 flex items-center justify-center bg-[#e3dff2] z-50 transition-opacity duration-700 ${
-        isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}
-    >
-      <div className="text-5xl font-extrabold text-[#7FBC8C]">
-        <span className="yoosch-text">
-          <span>y</span>
-          <span>o</span>
-          <span>o</span>
-          <span>s</span>
-          <span>c</span>
-          <span>h</span>
-        </span>
+        className={`fixed inset-0 flex items-center justify-center bg-[#e3dff2] z-50 transition-opacity duration-700 ${isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+      >
+        <div className="text-5xl font-extrabold text-[#7FBC8C]">
+          <span className="yoosch-text">
+            <span>y</span>
+            <span>o</span>
+            <span>o</span>
+            <span>s</span>
+            <span>c</span>
+            <span>h</span>
+          </span>
+        </div>
       </div>
-    </div>
     );
   };
 
@@ -215,7 +214,7 @@ export default function Page() {
       {isLoading && <LoaderScreen />}
       {!isLoading && (
         <div>
-          <nav className={`flex justify-between items-center sticky top-0 py-4 px-8  z-50 transition-colors duration-300 ${isScrolled ? "bg-[#a7dbd8] border-b-2 border-black shadow-lg" : "bg-transparent"
+          <nav className={`flex text-black justify-between items-center sticky top-0 py-4 px-8  z-50 transition-colors duration-300 ${isScrolled ? "bg-[#a7dbd8] border-b-2 border-black shadow-lg" : "bg-transparent"
             }`}>
             {/* Logo */}
             <div>
@@ -261,9 +260,9 @@ export default function Page() {
             <div
               id="home"
               className={`${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                } transition-all duration-1000 ease-out text-black`}
+                } transition-all duration-1000 ease-out text-black flex flex-col justify-center items-center h-screen`}
             >
-              <div className="p-auto items-center gap-4 md:text-center justify-center md:mt-[20%] mt-[80%] md:mb-[15%] mb-[100%]">
+              <div className="p-auto items-center gap-4 md:text-center justify-center">
                 <div className="text-black">
                   <h1 className="text-lg"><AutoGreeting /><span> there, my name is</span></h1>
                   <h1 className="font-bold text-5xl">
@@ -486,14 +485,14 @@ export default function Page() {
                 <h1 className="text-3xl font-bold text-black p-4 shadow-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
                   Connect with me
                 </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                <div className="grid grid-cols-1 text-center md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
                   {platforms.map((platform, index) => (
                     <a
                       key={index}
                       href={platform.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center border-2 px-8 py-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 rounded-none ${platform.bgColor} text-black font-bold`}
+                      className={`flex justify-center items-center border-2 px-8 py-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,0.9)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 rounded-none ${platform.bgColor} text-black font-bold`}
                     >
                       {platform.icon}
                       {platform.name}
@@ -519,7 +518,7 @@ export default function Page() {
 
                   <div className="border-4 border-black bg-[#fde4e1] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
                     <h1 className="text-2xl font-bold text-black">Email</h1>
-                    <p className="text-base mt-2">yudhisahsan@gmail.com</p>
+                    <p className="text-base text-green-800 mt-2">yudhisahsan@gmail.com</p>
                   </div>
                 </a>
 
@@ -527,7 +526,7 @@ export default function Page() {
                 <a href="wa.me/628990404567" >
                   <div className="border-4 border-black bg-[#d0f0fd] shadow-[8px_8px_0px_0px_rgba(0,0,0,0.9)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0)] hover:translate-x-1 hover:translate-y-1 transition-all duration-500 rounded-none p-6">
                     <h1 className="text-2xl font-bold text-black">WhatsApp</h1>
-                    <p className="text-base mt-2">+62 899 040 4567</p>
+                    <p className="text-base text-green-800 mt-2">+62 899 040 4567</p>
                   </div>
                 </a>
               </div>

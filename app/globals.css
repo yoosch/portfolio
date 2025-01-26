@@ -4,13 +4,13 @@
 
 :root {
   --background: #7df9ff;
-  --foreground: #171717;
+  --foreground: #7df9ff;
   --font-primary: 'Space Grotesk', Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #7df9ff;
     --foreground: #ededed;
   }
 }
