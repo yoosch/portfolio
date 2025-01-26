@@ -221,14 +221,14 @@ export default function Page() {
         </Drawer>
       </nav>
 
-      <div className="p-10">
+      <div className="px-10">
         <div
           id="home"
           className={`${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            } transition-all duration-1000 ease-out text-black p-4`}
+            } transition-all duration-1000 ease-out text-black`}
         >
-          <div className="items-center gap-4 md:text-center justify-center md:mt-[20%] mt-[40%] md:mb-[15%] mb-[80%]">
-            <div className="text-black p-4">
+          <div className="p-auto items-center gap-4 md:text-center justify-center md:mt-[20%] mt-[80%] md:mb-[15%] mb-[100%]">
+            <div className="text-black">
               <h1 className="text-lg"><AutoGreeting /><span> there, my name is</span></h1>
               <h1 className="font-bold text-5xl">
                 Muhammad Ahsan <span className="text-gray-500">Yudhistira</span>
