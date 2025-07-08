@@ -5,7 +5,7 @@ import { motion, time, useInView } from "framer-motion";
 import { Button, Timeline, Card, Drawer } from "flowbite-react";
 import { HiExternalLink, HiBriefcase, HiMenuAlt1 } from "react-icons/hi";
 import { Image } from "@heroui/react";
-import { FaReact, FaNodeJs, FaMailBulk, FaLaravel, FaLinkedin, FaFacebook, FaInstagram, FaPhp, FaGithub, FaJava, FaJsSquare, FaHeart } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaMailBulk, FaLaravel, FaLinkedin, FaWhatsapp, FaFacebook, FaInstagram, FaPhp, FaGithub, FaJava, FaJsSquare, FaHeart } from "react-icons/fa";
 import { SiTailwindcss, SiMysql, SiGit, SiVisualstudiocode } from "react-icons/si";
 
 export default function Page() {
@@ -153,6 +153,13 @@ export default function Page() {
 
   const projects = [
     {
+      title: "DIPOFESS",
+      img: "/project4.png",
+      description: "A web-based anonymous confession platform inspired by Twitter's menfess culture, allowing users to post and reply anonymously.",
+      link: "https://dipofess.vercel.app",
+      frameworks: ["Next.js", "Express.js", "Tailwind CSS", "MongoDB"],
+    },
+    {
       title: "PALMA",
       img: "/project1.png",
       description:
@@ -180,6 +187,9 @@ export default function Page() {
     "React": "bg-blue-500",
     "Laravel": "bg-red-500",
     "Tailwind CSS": "bg-green-500",
+    "Next.js": "bg-gray-200",
+    "Express.js": "bg-green-400", 
+    "MongoDB": "bg-green-600",
   }
 
   const platforms = [
@@ -287,9 +297,10 @@ export default function Page() {
                   <img
                     src="/profile.png"
                     alt="Profile Picture"
-                    className="w-32 h-32 rounded-xl mx-auto transform transition-transform hover:scale-110 hover:shadow-2xl border-4 border-gray-800"
+                    className="w-32 h-32 rounded-xl mx-auto border-4 border-gray-800 animate-spin360"
                   />
                 </div>
+
 
                 <p className="font-medium my-4 text-lg text-black border-t-4 md:border-none border-gray-800 pt-4">
                   I'm an Informatics student at Diponegoro University with a strong interest in technology.
@@ -481,9 +492,9 @@ export default function Page() {
               transition={{ duration: 1, ease: "easeOut" }}
             >
 
-                <h1 className="text-3xl font-bold text-black p-4 shadow-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
-                  Connect with me
-                </h1>
+              <h1 className="text-3xl font-bold text-black p-4 shadow-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                Connect with me
+              </h1>
               <div className="w-full px-8 py-12">
                 <div className="grid grid-cols-1 text-center md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
                   {platforms.map((platform, index) => (

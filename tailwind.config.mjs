@@ -9,6 +9,15 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        spin360: {
+          '0%': { transform: 'rotateY(0deg)' },
+          '100%': { transform: 'rotateY(360deg)' },
+        },
+      },
+      animation: {
+        spin360: 'spin360 2s linear infinite',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
